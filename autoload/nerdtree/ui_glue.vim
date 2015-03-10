@@ -154,7 +154,7 @@ function! nerdtree#ui_glue#chRootCwd()
         call nerdtree#echo("current directory does not exist.")
         return
     endtry
-    if cwd.str() == g:NERDTreeFileNode.GetRootForTab().path.str()
+    if !empty(g:NERDTreeFileNode.GetRootForTab()) && cwd.str() == g:NERDTreeFileNode.GetRootForTab().path.str()
        return
     endif
     call s:chRoot(g:NERDTreeDirNode.New(cwd))
